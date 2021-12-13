@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:15:56 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/11 13:18:42 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/13 12:15:25 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,16 @@
 #define A_KEY 0
 #define ESC_KEY 53
 
-typedef struct s_palyer{
-	int x;
-	int y;
-}
 typedef struct s_data
 {
 	void *mlx_ptr;
 	void *win_ptr;
 	void *img_ptr;
+	char **map;
+	int x;
+	int y;
 } t_data;
-typedef struct s_img
-{
-	int width;
-	int height;
-	int pos_i;
-	int pos_j;
 
-} t_img;
 int ft_strlen(char *result);
 void ft_join(char *str, char *s1, char *s2);
 char *ft_strjoin(char *s1, char *s2);
@@ -52,7 +44,11 @@ int ft_split_2(char const *s, char c, char **str, int i);
 char **ft_split(char const *s, char c);
 int ft_width(char **result);
 int ft_height(char **result);
-int ft_designe_game(t_data data, char **res);
+int ft_designe_game(t_data data);
 char **get_map(char *url);
 int key_hook(int key, t_data *data);
+char *ft_strstr(char *str, char *s);
+int ft_mapfermer(char **res);
+int ft_strcmp(char *s1, char *s2);
+void find_player(t_data *m);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aabdelmo <aabdelmo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:36:05 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/11 09:59:13 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/12 20:38:29 by aabdelmo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,17 @@ char *get_file(int fd)
 	}
 	free(buffer);
 	return (line);
+}
+char **get_map(char *url)
+{
+	int fd;
+	char **res;
+	char *file;
+
+	fd = open(url, O_RDONLY);
+	file = get_file(fd);
+	if (fd < 0)
+		return (NULL);
+	res = ft_split(file, '\n');
+	return (res);
 }
