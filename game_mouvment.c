@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 11:23:14 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/14 12:46:56 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/14 13:43:10 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void ft_ouvery(t_data *data, int a)
 }
 int key_hook(int key, t_data *data)
 {
+	data->cp += 1;
+	printf("%d\n", data->cp);
 	if (key == ESC_KEY)
 	{
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);

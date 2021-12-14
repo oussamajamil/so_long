@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:15:56 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/14 13:10:31 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/14 13:40:32 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_data
 	char **map;
 	int x;
 	int y;
+	int cp;
 } t_data;
 
 int ft_strlen(char *result);

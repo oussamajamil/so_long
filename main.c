@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:19:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/14 13:08:01 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/14 13:40:59 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@ int main(int argc, char *argv[])
 {
 	t_data data;
 	char *url;
+
+	data.cp = 0;
 	if (argc == 2)
 	{
 		url = argv[1];
