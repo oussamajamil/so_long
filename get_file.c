@@ -3,26 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_file.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aabdelmo <aabdelmo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:36:05 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/12 20:38:29 by aabdelmo         ###   ########.fr       */
+/*   Updated: 2021/12/14 11:21:42 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int ft_strlen(char *result)
-{
-	int i;
-
-	if (result == NULL)
-		return (0);
-	i = 0;
-	while (result[i])
-		i++;
-	return (i);
-}
 void ft_join(char *str, char *s1, char *s2)
 {
 	int i;

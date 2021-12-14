@@ -6,29 +6,25 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_strlen.c\
- ft_join.c\
- 	get_file.c\
- 	count_word.c\
- 	ft_count_and_alloc.c\
- 	ft_split_2.c\
-	ft_width.c\
- 	ft_height.c\
- 	ft_designe_game.c\
- 	get_map.c\
- 	key_hook.c\
- 	ft_strstr.c\
- 	ft_mapfermer.c
+SRC = 	Controllemaps.c\
+		ft_function_libft.c\
+		ft_split.c\
+		game_mouvment.c\
+		get_file.c\
+		so_long.c
 
 OBJECTS = $(SRC:.c=.o)
 
+%.o : %.c
+	$(CC) $(CFLAGS) -o $@ -c $< 
+
 all = $(NAME)
 
-$(NAME): $(OBJECTS1) $(INCLUDES)
+
+$(NAME): $(OBJECTS) $(INCLUDE)
 	ar rc $(NAME) $^
 
-%.o : %.c
-	$(CC) $(CFLAGS) -o $@ -c $< -lmlx -framework OpenGL -framework AppKit
+
 
 clean:
 	rm -rf $(OBJECTS) 

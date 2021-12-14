@@ -6,13 +6,13 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:59:00 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/11 09:59:02 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/14 13:03:15 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int count_word(char const *s, char c)
+int count_word(char *s, char c)
 {
 	int i;
 	int flage;
@@ -56,7 +56,7 @@ int ft_count_and_alloc(char *s, char c)
 	return (cp);
 }
 
-int ft_split_2(char const *s, char c, char **str, int i)
+int ft_split_2(char *s, char c, char **str, int i)
 {
 	int j;
 	int k;
@@ -85,7 +85,7 @@ int ft_split_2(char const *s, char c, char **str, int i)
 	return (-1);
 }
 
-char **ft_split(char const *s, char c)
+char **ft_split(char *s, char c)
 {
 	char **str;
 	int j;
