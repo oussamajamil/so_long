@@ -41,3 +41,34 @@ int ft_strlen(char *result)
 		i++;
 	return (i);
 }
+
+int ft_exit(t_data *data)
+{
+	exit(0);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	data->mlx_ptr = NULL;
+	data->win_ptr = NULL;
+	return (0);
+}
+
+int	cherche_map(char **res, char c)
+{
+	int	i;
+	int	j;
+	int	cp;
+
+	cp = 0;
+	i = 0;
+	while (res[i])
+	{
+		j = 0;
+		while (res[i][j])
+		{
+			if (res[i][j] == c)
+				cp++;
+			j++;
+		}
+		i++;
+	}
+	return (cp);
+}

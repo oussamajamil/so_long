@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/16 13:18:49 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/16 13:44:18 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		if (ft_strcmp(ft_strstr(url, ".ber"), ".ber") == 0)
 		{
 			data.map = get_map(url);
-			if (cherche_map(data.map, 'P') == 1 && cherche_map(data.map, 'C') > 0 && ft_mapfermer(data.map) == 1)
+			if (cherche_map(data.map, 'P') == 1 && cherche_map(data.map, 'C') > 0 && ft_mapfermer(data.map) == 1 && check_mab_caracter_bonus(data.map) == 1 && cherche_map(data.map, 'F') == 1)
 			{
 				find_player(&data);
 				data.mlx_ptr = mlx_init();

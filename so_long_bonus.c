@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:45:30 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/16 12:35:09 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/16 14:11:22 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,6 @@ int ft_designe_game_bonus(t_data data)
 	}
 	return (0);
 }
-int ft_exit(t_data *data)
-{
-	exit(0);
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-	data->mlx_ptr = NULL;
-	data->win_ptr = NULL;
-	return (0);
-}
-
 void ft_grafic_bonnus(t_data data)
 {
 	data.win_ptr = mlx_new_window(data.mlx_ptr, ft_width(data.map) * 64, (ft_height(data.map) * 64) + 40, "./so_long");

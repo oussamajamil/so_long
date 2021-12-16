@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:36:05 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/15 09:13:02 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/16 16:48:10 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ char **get_map(char *url)
 	if (!file)
 		return (NULL);
 	res = ft_split(file, '\n');
+	free(file);
 	return (res);
 }

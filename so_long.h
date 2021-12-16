@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:15:56 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/16 12:04:57 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/16 17:36:22 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@
 #define D_KEY 2
 #define A_KEY 0
 #define ESC_KEY 53
+
+typedef struct s_img
+{
+	void *wall_img;
+	void *mario_img;
+	void *Money_img;
+	void *
+} t_img;
 
 typedef struct s_data
 {
@@ -63,4 +71,8 @@ int ft_exit(t_data *data);
 int key_loop_hook(t_data *data);
 int ft_x_position(t_data *data);
 int ft_y_position(t_data *data);
+int check_mab_caracter(char **res);
+int check_mab_caracter_bonus(char **res);
+int ft_rermplir_gams_animation(t_data *data, int a, int i, int j, char *k);
+void ft_mouvement_bonus(t_data *data, int a, int b);
 #endif
