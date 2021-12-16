@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:15:56 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/14 13:40:32 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/16 12:04:57 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_data
 	int x;
 	int y;
 	int cp;
+	int left_orright_annimation;
 } t_data;
 
 int ft_strlen(char *result);
@@ -48,9 +49,18 @@ int ft_height(char **result);
 int ft_designe_game(t_data data);
 char **get_map(char *url);
 int key_hook(int key, t_data *data);
+int key_hook_bonus(int key, t_data *data);
 char *ft_strstr(char *str, char *s);
 int ft_mapfermer(char **res);
 int ft_strcmp(char *s1, char *s2);
 void find_player(t_data *m);
 int cherche_map(char **res, char c);
+char *ft_itoa(int n);
+void ft_grafic_bonnus(t_data data);
+void put_img_bonus(t_data data, int i, int j, char *url);
+int ft_designe_game_bonus(t_data data);
+int ft_exit(t_data *data);
+int key_loop_hook(t_data *data);
+int ft_x_position(t_data *data);
+int ft_y_position(t_data *data);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:36:05 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/14 11:21:42 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/15 09:13:02 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,10 @@ char **get_map(char *url)
 	char *file;
 
 	fd = open(url, O_RDONLY);
-	file = get_file(fd);
 	if (fd < 0)
+		return (NULL);
+	file = get_file(fd);
+	if (!file)
 		return (NULL);
 	res = ft_split(file, '\n');
 	return (res);
