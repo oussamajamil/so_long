@@ -6,37 +6,53 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/16 13:44:18 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 11:23:57 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(int argc, char *argv[])
+void	maps_check(t_data data)
 {
-	t_data data;
-	char *url;
+	if (cherche_map(data.map, 'P') != 1)
+		perror("player exist pas");
+	else if (ft_mapfermer(data.map) == 0)
+		perror("maps not fermer");
+	else if (check_mab_caracter_bonus(data.map) == -1)
+		perror("des caracter de maps not exist");
+	else if (cherche_map(data.map, 'F') != 1)
+		perror("maps contiant just 1 annimation");
+	else
+	{
+		data.mlx_ptr = mlx_init();
+		if (data.mlx_ptr == NULL)
+			perror("aups");
+		find_player(&data);
+		ft_grafic_bonnus(data);
+		free(data.map);
+	}
+}
 
-	data.cp = 0;
+int	main(int argc, char *argv[])
+{
+	t_data	data;
+
 	if (argc == 2)
 	{
-		url = argv[1];
-		if (ft_strcmp(ft_strstr(url, ".ber"), ".ber") == 0)
+		data.cp = 0;
+		if (ft_strcmp(ft_strstr(argv[1], ".ber"), ".ber") == 0)
 		{
-			data.map = get_map(url);
-			if (cherche_map(data.map, 'P') == 1 && cherche_map(data.map, 'C') > 0 && ft_mapfermer(data.map) == 1 && check_mab_caracter_bonus(data.map) == 1 && cherche_map(data.map, 'F') == 1)
+			data.map = get_map(argv[1]);
+			if (!data.map)
 			{
-				find_player(&data);
-				data.mlx_ptr = mlx_init();
-				if (data.mlx_ptr == NULL)
-					perror("aups");
-				ft_grafic_bonnus(data);
-				free(data.map);
-			}
-			else
 				perror("error maps");
+				return (0);
+			}
+			maps_check(data);
 		}
 		else
-			exit(0);
+			perror("error maps");
 	}
+	else
+		perror("error");
 }

@@ -6,15 +6,15 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:56:38 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/15 09:48:39 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 09:14:07 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.c"
+#include "so_long.h"
 
-int ft_count(long n)
+int	ft_count(long n)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	if (n < 0)
@@ -30,7 +30,7 @@ int ft_count(long n)
 	return (i);
 }
 
-void ft_remplir(char *str, long cp, int count)
+void	ft_remplir(char *str, long cp, int count)
 {
 	if (cp == 0)
 	{
@@ -50,11 +50,11 @@ void ft_remplir(char *str, long cp, int count)
 	}
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	int count;
-	long cp;
-	char *str;
+	int		count;
+	long	cp;
+	char	*str;
 
 	cp = n;
 	count = ft_count(n);

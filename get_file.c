@@ -6,16 +6,16 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:36:05 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/16 16:48:10 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 09:42:25 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_join(char *str, char *s1, char *s2)
+void	ft_join(char *str, char *s1, char *s2)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (s1[i])
@@ -29,9 +29,9 @@ void ft_join(char *str, char *s1, char *s2)
 	str[i] = '\0';
 }
 
-char *ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	char *str;
+	char	*str;
 
 	str = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (!str)
@@ -47,12 +47,14 @@ char *ft_strjoin(char *s1, char *s2)
 	free(s1);
 	return (str);
 }
-char *get_file(int fd)
-{
-	char *line = NULL;
-	char *buffer = NULL;
-	int a;
 
+char	*get_file(int fd)
+{
+	char	*line;
+	char	*buffer;
+	int		a;
+
+	line = NULL;
 	buffer = (char *)malloc(sizeof(char) * 2);
 	if (!buffer)
 		return (NULL);
@@ -65,20 +67,21 @@ char *get_file(int fd)
 			return (NULL);
 		}
 		if (a == 0)
-			break;
+			break ;
 		buffer[1] = 0;
 		if (buffer[0] == '\0')
-			break;
+			break ;
 		line = ft_strjoin(line, buffer);
 	}
 	free(buffer);
 	return (line);
 }
-char **get_map(char *url)
+
+char	**get_map(char *url)
 {
-	int fd;
-	char **res;
-	char *file;
+	int		fd;
+	char	**res;
+	char	*file;
 
 	fd = open(url, O_RDONLY);
 	if (fd < 0)

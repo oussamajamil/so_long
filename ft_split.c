@@ -6,17 +6,17 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 09:59:00 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/14 13:03:15 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 09:36:59 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int count_word(char *s, char c)
+int	count_word(char *s, char c)
 {
-	int i;
-	int flage;
-	int cp;
+	int	i;
+	int	flage;
+	int	cp;
 
 	i = 0;
 	flage = 0;
@@ -37,10 +37,10 @@ int count_word(char *s, char c)
 	return (cp);
 }
 
-int ft_count_and_alloc(char *s, char c)
+int	ft_count_and_alloc(char *s, char c)
 {
-	int i;
-	int cp;
+	int	i;
+	int	cp;
 
 	i = 0;
 	cp = 0;
@@ -56,10 +56,10 @@ int ft_count_and_alloc(char *s, char c)
 	return (cp);
 }
 
-int ft_split_2(char *s, char c, char **str, int i)
+int	ft_split_2(char *s, char c, char **str, int i)
 {
-	int j;
-	int k;
+	int	j;
+	int	k;
 
 	j = 0;
 	while (s[i])
@@ -85,10 +85,10 @@ int ft_split_2(char *s, char c, char **str, int i)
 	return (-1);
 }
 
-char **ft_split(char *s, char c)
+char	**ft_split(char *s, char c)
 {
-	char **str;
-	int j;
+	char	**str;
+	int		j;
 
 	if (!s)
 		return (NULL);
