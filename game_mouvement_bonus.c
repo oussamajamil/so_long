@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:30:20 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 09:20:39 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 14:23:41 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int	key_hook_bonus(int key, t_data *data)
 	if (key == ESC_KEY)
 	{
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		data->win_ptr = NULL;
 		exit(0);
 	}
 	if (key == D_KEY)

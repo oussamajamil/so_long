@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:19:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 11:22:23 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 15:35:16 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	grafice(t_data data)
 {
 	data.win_ptr = mlx_new_window(data.mlx_ptr, ft_width(data.map) * 64,
 			ft_height(data.map) * 64, "./so_long");
+	if (data.win_ptr == NULL)
+	{
+		free(data.win_ptr);
+		perror("error");
+	}
 	ft_designe_game(data);
 	mlx_hook(data.win_ptr, 2, 1L << 0, key_hook, &data);
 	mlx_hook(data.win_ptr, 17, (1L << 0), ft_exit, &data);
@@ -25,13 +30,13 @@ void	grafice(t_data data)
 void	maps_checked(t_data data)
 {
 	if (cherche_map(data.map, 'P') != 1)
-		perror("player exist pas");
+		perror("player exist pas\n");
 	else if (ft_mapfermer(data.map) == 0)
-		perror("maps not fermer");
+		perror("maps not fermer\n");
 	else if (check_mab_caracter(data.map) == -1)
-		perror("des caracter de maps not exist");
+		perror("des caracter de maps not exist\n");
 	else if (cherche_map(data.map, 'E') == 0)
-		perror("error game");
+		perror("error game\n");
 	else
 	{
 		data.mlx_ptr = mlx_init();
@@ -59,6 +64,8 @@ int	main(int argc, char *argv[])
 			maps_checked(data);
 		}
 		else
-			exit(0);
+			perror("file trminer .ber");
 	}
+	else
+		perror("maps inconner");
 }

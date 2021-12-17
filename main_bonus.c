@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 11:23:57 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 14:40:53 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	maps_check(t_data data)
 			perror("aups");
 		find_player(&data);
 		ft_grafic_bonnus(data);
-		free(data.map);
 	}
 }
 
