@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 14:40:53 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 19:09:15 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 void	maps_check(t_data data)
 {
 	if (cherche_map(data.map, 'P') != 1)
-		perror("player exist pas");
+		perror("ERROR \nplayer exist pas");
 	else if (ft_mapfermer(data.map) == 0)
-		perror("maps not fermer");
+		perror("ERROR \nmaps not fermer");
 	else if (check_mab_caracter_bonus(data.map) == -1)
-		perror("des caracter de maps not exist");
+		perror("ERROR \ndes caracter de maps not exist");
 	else if (cherche_map(data.map, 'F') != 1)
-		perror("maps contiant just 1 annimation");
+		perror("ERROR \nmaps contiant just 1 annimation");
+	else if (cherche_map(data.map, 'C') == 0)
+		perror("ERROR \nneed money");
+	else if (ft_width(data.map) == ft_height(data.map))
+		perror("ERROR \n maps");
 	else
 	{
 		data.mlx_ptr = mlx_init();

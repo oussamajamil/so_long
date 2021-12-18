@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:30:20 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 14:23:41 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 17:51:08 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_ouverx(t_data *data, int a)
 			ft_mouvement_bonus(data, a, 0);
 			ft_exit(data);
 		}
-		if (data->map[data->y][data->x + a] == '0'
+		else if (data->map[data->y][data->x + a] == '0'
 		|| data->map[data->y][data->x + a] == 'C')
 			ft_mouvement_bonus(data, a, 0);
 	}
@@ -69,7 +69,7 @@ void	ft_ouvery(t_data *data, int a)
 			ft_mouvement_bonus(data, 0, a);
 			ft_exit(data);
 		}
-		if (data->map[data->y + a][data->x] == '0'
+		else if (data->map[data->y + a][data->x] == '0'
 			|| data->map[data->y + a][data->x] == 'C')
 			ft_mouvement_bonus(data, 0, a);
 	}

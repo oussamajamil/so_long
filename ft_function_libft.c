@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_function_libft.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojamil <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 09:11:20 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 09:12:28 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/17 16:22:18 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ int	ft_strlen(char *result)
 
 int	ft_exit(t_data *data)
 {
-	exit(0);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	data->mlx_ptr = NULL;
 	data->win_ptr = NULL;
+	exit(0);
 	return (0);
 }
 

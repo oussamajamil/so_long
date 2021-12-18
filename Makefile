@@ -1,10 +1,13 @@
-NAME = so_long.a
+NAME = so_long
 
 INCLUDE = so_long.h
 
 CC = gcc
-
+EXCUTE = main.c
+EXCUTEBONUS = main_bonus.c
 CFLAGS = -Wall -Wextra -Werror
+
+MLXFLAGE =-lmlx -framework OpenGL -framework AppKit
 
 SRC = 	Controllemaps.c\
 		ft_function_libft.c\
@@ -23,21 +26,24 @@ SRCB = Controllemaps.c\
 		ft_annimation.c
 
 OBJECTS = $(SRC:.c=.o)
+
 OBJECTSB = $(SRCB:.c=.o)
+
+all :$(NAME)
+
+$(NAME) : $(OBJECTS) $(INCLUDE)
+	$(CC) $(CFLAGS) $(EXCUTE) $(OBJECTS) $(MLXFLAGE) -o $@
+
 %.o : %.c
-	$(CC) $(CFLAGS) -o $@ -c $< 
+	$(CC) $(CFLAGS) -o $@ -c $<
 
-all = $(NAME)
-
-
-$(NAME): $(OBJECTS) $(INCLUDE)
-	ar rc $(NAME) $^
-
-bonus :$(OBJECTSB) $(INCLUDE)
-	ar rc $(NAME) $^
+bonus : $(OBJECTSB) $(INCLUDE)
+	$(CC) $(CFLAGS) $(EXCUTEBONUS) $(OBJECTSB) $(MLXFLAGE) -o so_long_bonus
 
 clean:
-	rm -rf $(OBJECTS) $(OBJECTSB)
+	rm -rf $(OBJECTS) $(OBJECTSB) && rm -rf so_long && rm -rf so_long_bonus
 
 fclean: clean
 	rm -rf $(NAME)
+
+re : fclean all
