@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:45:30 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 12:25:57 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/18 17:08:13 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_grafic_bonnus(t_data data)
 	mlx_string_put(data.mlx_ptr, data.win_ptr, 10, 10, 0xFFFFFF, "0");
 	mlx_hook(data.win_ptr, 2, (1L << 0), key_hook_bonus, &data);
 	mlx_hook(data.win_ptr, 17, (1L << 0), ft_exit, &data);
-	mlx_loop_hook(data.mlx_ptr, key_loop_hook, &data);
+	if (cherche_map(data.map, 'F') >= 1)
+		mlx_loop_hook(data.mlx_ptr, key_loop_hook, &data);
 	mlx_loop(data.mlx_ptr);
 }

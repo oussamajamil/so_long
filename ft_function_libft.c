@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 09:11:20 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 16:22:18 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/18 17:34:32 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	ft_strlen(char *result)
 int	ft_exit(t_data *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	free(data->map);
 	data->mlx_ptr = NULL;
 	data->win_ptr = NULL;
 	exit(0);

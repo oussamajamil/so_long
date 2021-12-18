@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 19:09:15 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/18 17:31:59 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 void	maps_check(t_data data)
 {
 	if (cherche_map(data.map, 'P') != 1)
-		perror("ERROR \nplayer exist pas");
+		printf("ERROR \n i need the player\n");
 	else if (ft_mapfermer(data.map) == 0)
-		perror("ERROR \nmaps not fermer");
+		printf("ERROER\nmap doesn't work \n");
 	else if (check_mab_caracter_bonus(data.map) == -1)
-		perror("ERROR \ndes caracter de maps not exist");
-	else if (cherche_map(data.map, 'F') != 1)
-		perror("ERROR \nmaps contiant just 1 annimation");
+		printf("ERROER\nthe caractere does not exist\n");
 	else if (cherche_map(data.map, 'C') == 0)
-		perror("ERROR \nneed money");
+		printf("ERROR \ni need the collectible");
+	else if (cherche_map(data.map, 'E') == 0)
+		printf("ERROR\ni need the map exit");
 	else if (ft_width(data.map) == ft_height(data.map))
-		perror("ERROR \n maps");
+		printf("ERROR \n map doesn't work");
 	else
 	{
 		data.mlx_ptr = mlx_init();
 		if (data.mlx_ptr == NULL)
-			perror("aups");
+			printf("ERROR \n error the programme");
 		find_player(&data);
 		ft_grafic_bonnus(data);
 	}
@@ -48,14 +48,14 @@ int	main(int argc, char *argv[])
 			data.map = get_map(argv[1]);
 			if (!data.map)
 			{
-				perror("error maps");
+				printf("ERROR\nerror maps");
 				return (0);
 			}
 			maps_check(data);
 		}
 		else
-			perror("error maps");
+			printf("ERROR \nerror maps");
 	}
 	else
-		perror("error");
+		printf("ERROR \n i need the map");
 }

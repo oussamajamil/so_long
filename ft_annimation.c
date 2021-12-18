@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 11:51:15 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 13:59:58 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/18 16:48:50 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,15 @@ int	ft_y_position(t_data *data)
 	return (-1);
 }
 
+void	ft_tirmener_rmplir_game(t_data *data, char *k)
+{
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0xFFFFFF, k);
+	ft_designe_game_bonus(*data);
+	free(k);
+	usleep(50000);
+}
+
 int	ft_rermplir_gams_animation(t_data *data, int a, int i, int j)
 {
 	char	*k;
@@ -60,20 +69,14 @@ int	ft_rermplir_gams_animation(t_data *data, int a, int i, int j)
 	if (data->map[i][j + a] == 'P')
 	{
 		data->map[i][j + a] = 'F';
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0xFFFFFF, k);
-		ft_designe_game_bonus(*data);
-		usleep(50000);
+		ft_tirmener_rmplir_game(data, k);
 		ft_exit(data);
 	}
 	if (data->map[i][j + a] == '0')
 	{
 		data->map[i][j] = '0';
 		data->map[i][j + a] = 'F';
-		mlx_clear_window(data->mlx_ptr, data->win_ptr);
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 10, 10, 0xFFFFFF, k);
-		ft_designe_game_bonus(*data);
-		usleep(50000);
+		ft_tirmener_rmplir_game(data, k);
 		return (-1);
 	}
 	free(k);

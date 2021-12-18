@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:30:20 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 17:51:08 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/18 17:35:24 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_ouverx(t_data *data, int a)
 	{
 		if ((data->map[data->y][data->x + a] == 'E'
 			&& cherche_map(data->map, 'C') == 0)
-			|| data->map[data->y + a][data->x] == 'F')
+			|| data->map[data->y][data->x + a] == 'F')
 		{
 			ft_mouvement_bonus(data, a, 0);
 			ft_exit(data);
@@ -78,11 +78,7 @@ void	ft_ouvery(t_data *data, int a)
 int	key_hook_bonus(int key, t_data *data)
 {
 	if (key == ESC_KEY)
-	{
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		data->win_ptr = NULL;
-		exit(0);
-	}
+		ft_exit(data);
 	if (key == D_KEY)
 		ft_ouverx(data, 1);
 	if (key == A_KEY)

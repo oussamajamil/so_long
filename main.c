@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:19:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/17 18:58:28 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/18 17:30:15 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	grafice(t_data data)
 	if (data.win_ptr == NULL)
 	{
 		free(data.win_ptr);
-		perror("error");
+		printf("ERROR \n error the programme");
 	}
 	ft_designe_game(data);
 	mlx_hook(data.win_ptr, 2, 1L << 0, key_hook, &data);
@@ -30,22 +30,22 @@ void	grafice(t_data data)
 void	maps_checked(t_data data)
 {
 	if (ft_width(data.map) == ft_height(data.map))
-		perror("ERROR \n maps");
+		printf("ERROR \n maps");
 	else if (cherche_map(data.map, 'P') != 1)
-		perror("player exist pas\n");
+		printf("ERROR \n i need the player\n");
 	else if (ft_mapfermer(data.map) == 0)
-		perror("maps not fermer\n");
+		printf("ERROR \nmap not work\n");
 	else if (check_mab_caracter(data.map) == -1)
-		perror("des caracter de maps not exist\n");
+		printf("ERROR \nthe caractere does not exist\n");
 	else if (cherche_map(data.map, 'E') == 0)
-		perror("error game\n");
+		printf("ERROR\ni need the map exit");
 	else if (cherche_map(data.map, 'C') == 0)
-		perror("error game\n");
+		printf("ERROR \ni need the collectible\n");
 	else
 	{
 		data.mlx_ptr = mlx_init();
 		if (data.mlx_ptr == NULL)
-			perror("error maps");
+			printf("ERROR \n error the programme");
 		find_player(&data);
 		grafice(data);
 	}
@@ -64,12 +64,12 @@ int	main(int argc, char *argv[])
 		{
 			data.map = get_map(url);
 			if (!data.map)
-				perror("error maps");
+				printf("ERROR\nerror the programme");
 			maps_checked(data);
 		}
 		else
-			perror("file trminer .ber");
+			printf("ERROR\n file finished .ber");
 	}
 	else
-		perror("maps inconner");
+		printf("ERROR \nmap doesn't work ");
 }
