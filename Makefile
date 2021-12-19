@@ -41,9 +41,9 @@ bonus : $(OBJECTSB) $(INCLUDE)
 	$(CC) $(CFLAGS) $(EXCUTEBONUS) $(OBJECTSB) $(MLXFLAGE) -o so_long_bonus
 
 clean:
-	rm -rf $(OBJECTS) $(OBJECTSB) && rm -rf so_long && rm -rf so_long_bonus
+	rm -rf $(OBJECTS) $(OBJECTSB)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) so_long_bonus so_long
 
 re : fclean all

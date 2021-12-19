@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/18 17:31:59 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/19 11:58:56 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,17 @@ int	main(int argc, char *argv[])
 			if (!data.map)
 			{
 				printf("ERROR\nerror maps");
-				return (0);
+				exit(0);
 			}
 			maps_check(data);
 		}
 		else
+		{
 			printf("ERROR \nerror maps");
+			exit(0);
+		}
 	}
 	else
 		printf("ERROR \n i need the map");
+	return (0);
 }

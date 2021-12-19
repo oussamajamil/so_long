@@ -6,7 +6,7 @@
 /*   By: ojamil <ojamil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:19:02 by ojamil            #+#    #+#             */
-/*   Updated: 2021/12/18 17:30:15 by ojamil           ###   ########.fr       */
+/*   Updated: 2021/12/19 11:57:21 by ojamil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ void	maps_checked(t_data data)
 	{
 		data.mlx_ptr = mlx_init();
 		if (data.mlx_ptr == NULL)
+		{
 			printf("ERROR \n error the programme");
+			exit(0);
+		}
 		find_player(&data);
 		grafice(data);
 	}
@@ -68,8 +71,12 @@ int	main(int argc, char *argv[])
 			maps_checked(data);
 		}
 		else
+		{
 			printf("ERROR\n file finished .ber");
+			exit(0);
+		}
 	}
 	else
 		printf("ERROR \nmap doesn't work ");
+	return (0);
 }
